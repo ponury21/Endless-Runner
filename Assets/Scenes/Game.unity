@@ -612,6 +612,7 @@ GameObject:
   - component: {fileID: 741842593}
   - component: {fileID: 741842592}
   - component: {fileID: 741842594}
+  - component: {fileID: 741842595}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -685,7 +686,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 741842590}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 52382d7caa4042143a1b400159ec9a44, type: 3}
   m_Name: 
@@ -693,6 +694,21 @@ MonoBehaviour:
   player: {fileID: 319922105}
   scoreText: {fileID: 741842592}
   currentScore: 0
+--- !u!114 &741842595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741842590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea10473693ab25a4a828c5fe227a5ffe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScoreText: {fileID: 741842592}
+  StatusText: {fileID: 0}
+  i: 0
 --- !u!4 &1157213995 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 8ba0c3015cca7dc4c833702b1f52b851,

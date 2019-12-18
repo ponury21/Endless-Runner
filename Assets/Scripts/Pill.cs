@@ -11,6 +11,7 @@ public class Pill : MonoBehaviour
     }
     void OnTriggerEnter(Collider col){
         Destroy(this.gameObject);
+        UIManager.Instance.IncreaseScore(100);
     }
 
     public float rotateSpeed=50f;

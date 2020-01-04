@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
     public class UIManager : MonoBehaviour
@@ -17,8 +18,6 @@ using UnityEngine;
             DestroyImmediate(this);
         }
     }
- 
-    //singleton implementation
     private static UIManager instance;
     public static UIManager Instance
     {
@@ -51,8 +50,10 @@ using UnityEngine;
  
     public void IncreaseScore(float value)
     {
+        if(GameManager.Instance.GameState==GameState.Playing)
         score += value;
         UpdateScoreText();
+        
     }
  
     private void UpdateScoreText()
@@ -64,13 +65,28 @@ using UnityEngine;
     {
         StatusText.text = text;
     }
- 
+    public void newGame(){
+        SceneManager.LoadScene("game");
+    }
+    public void menuReturn(){
+        SceneManager.LoadScene("MainMenu");
+    }
+    public void hideUI(){
+        Vector3 pos=Menu.transform.position;
+        pos.y=1000f;
+        Menu.transform.position=pos;
+       // NewGameButton.gameObject.SetActive(false);
+    }
+    public void showUI(){
+        Vector3 pos=Menu.transform.position;
+        pos.y=500f;
+        Menu.transform.position=pos;
+       // NewGameButton.gameObject.SetActive(true);
+    }
     public Text ScoreText, StatusText;
+
+    public GameObject Menu;
+    //public Button NewGameButton;
     public int i=0;
-  void Update(){
-      i++;
-      if(i==60){IncreaseScore(1); i=0;}
-      
-  }
 }
 

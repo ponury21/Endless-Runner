@@ -22,8 +22,9 @@ public class TimeDestroy : MonoBehaviour
 
      void DestroyObject()
     {
-        
-            Destroy(gameObject);
+            if(GameManager.Instance.GameState!=GameState.Dead && GameManager.Instance.GameState!=GameState.Pause){
+                Destroy(gameObject);
+            }
     }
 
 

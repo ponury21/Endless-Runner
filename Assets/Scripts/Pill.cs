@@ -5,14 +5,16 @@ using UnityEngine;
 
 public class Pill : MonoBehaviour
 {
-    void Update()
+   void Update()
     {
         transform.Rotate(Vector3.back,Time.deltaTime*rotateSpeed);
-    }
+    } 
+    public float rotateSpeed=50f;
+    
     void OnTriggerEnter(Collider col){
         Destroy(this.gameObject);
         UIManager.Instance.IncreaseScore(100);
     }
 
-    public float rotateSpeed=50f;
+    
 }

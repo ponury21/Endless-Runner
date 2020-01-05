@@ -5,16 +5,23 @@ using UnityEngine;
 
 public class MainCharacter_Control : MonoBehaviour
 {
+    public CharacterController characterControler;
+    public Vector3 moveDir = new Vector3(0f, 0f, 0.1f);
+    public float predkoscporuszania = 100f;
     public bool isGrounded=true;
     public bool canJump=true;
     public int i=0;
     public int dTime=0;
     public float moveSpeed=0f;
     public float sideSpeed=0f;
+
+    public float isPressedR = 1;
+    public float isPressedL = 1;
     // Start is called before the first frame update
     void Start()
     {
         Rigidbody rigidbody = transform.GetComponent<Rigidbody>();
+        characterControler = GetComponent<CharacterController>();
         UIManager.Instance.ResetScore();
         //GameManager.Instance.Play();
     }
@@ -30,32 +37,29 @@ public class MainCharacter_Control : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         //ruch do przodu
-                
-        switch(GameManager.Instance.GameState){
+        //ruch do przodu
+        characterControler.Move(new Vector3(0, 0, -1)*predkoscporuszania*10 *Time.deltaTime);
+
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
+
+        Vector3 move = transform.right * x + transform.forward * z;
+        characterControler.Move(move * predkoscporuszania*10 * Time.deltaTime);
+
+
+        switch (GameManager.Instance.GameState){
             
             case GameState.Playing:
 
             UIManager.Instance.SetStatus("Status: Playing");
 
-            GetComponent<Rigidbody>().AddTorque(Vector3.left*moveSpeed);
+            //GetComponent<Rigidbody>().AddTorque(Vector3.left*moveSpeed);
             if(Input.GetKeyDown(KeyCode.Escape)){
                 GameManager.Instance.Pause();
             }
-            if(Input.GetKey(KeyCode.LeftArrow))
-                 {
-                    GetComponent<Rigidbody>().AddTorque(Vector3.back*sideSpeed);
-                 }
 
-                if(Input.GetKey(KeyCode.RightArrow))
-                {
-                     GetComponent<Rigidbody>().AddTorque(Vector3.forward*sideSpeed);
-                 }
 
-                 if (Input.GetKey(KeyCode.Space)&& isGrounded)
-                    {
-                     GetComponent<Rigidbody>().AddForce(0, 5f, 0, ForceMode.Impulse);
-                }
+                //klawiatura();
 
                 i++;
                 if(i==60){UIManager.Instance.IncreaseScore(1); i=0;}
@@ -84,4 +88,7 @@ public class MainCharacter_Control : MonoBehaviour
                 break;
         }
     }
+
+
+
 }

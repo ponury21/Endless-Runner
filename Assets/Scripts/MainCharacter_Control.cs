@@ -6,7 +6,8 @@ using UnityEngine;
 public class MainCharacter_Control : MonoBehaviour
 {
     public CharacterController characterControler;
-    public Vector3 moveDir = new Vector3(0f, 0f, 0.1f);
+    public Vector3 moveDir = new Vector3(0,0,0);
+    public Vector3 xde = new Vector3(0, 0, -1);
     public float predkoscporuszania = 100f;
     public bool isGrounded=true;
     public bool canJump=true;
@@ -14,6 +15,7 @@ public class MainCharacter_Control : MonoBehaviour
     public int dTime=0;
     public float moveSpeed=0f;
     public float sideSpeed=0f;
+    public int pauza = 0;
 
     public float isPressedR = 1;
     public float isPressedL = 1;
@@ -23,6 +25,8 @@ public class MainCharacter_Control : MonoBehaviour
         Rigidbody rigidbody = transform.GetComponent<Rigidbody>();
         characterControler = GetComponent<CharacterController>();
         UIManager.Instance.ResetScore();
+        moveDir = characterControler.transform.position;
+
         //GameManager.Instance.Play();
     }
  
@@ -38,7 +42,12 @@ public class MainCharacter_Control : MonoBehaviour
     void Update()
     {
         //ruch do przodu
-        characterControler.Move(new Vector3(0, 0, -1)*predkoscporuszania*10 *Time.deltaTime);
+        
+
+        if (pauza == 0)
+        {
+            characterControler.Move(new Vector3(0, 0, -1) * predkoscporuszania * 10 * Time.deltaTime);
+        }
 
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
@@ -58,6 +67,11 @@ public class MainCharacter_Control : MonoBehaviour
                 GameManager.Instance.Pause();
             }
 
+            if(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow))
+                {
+                    Input.ResetInputAxes();
+                }
+
 
                 //klawiatura();
 
@@ -70,20 +84,21 @@ public class MainCharacter_Control : MonoBehaviour
 
             UIManager.Instance.SetStatus("Status: Pause");
 
-                GetComponent<Rigidbody>().velocity*=0.9f;
-                GetComponent<Rigidbody>().angularVelocity*=0.9f;
+                pauza = 1;
 
                 if(Input.GetKeyDown(KeyCode.Escape)){
-                GameManager.Instance.Play();
+
+
+                    GameManager.Instance.Play();
+                    pauza = 0;
             }
                 break;
 
             case GameState.Dead:
 
             UIManager.Instance.SetStatus("Status: Dead");
-            
-                GetComponent<Rigidbody>().velocity*=0.9f;
-                GetComponent<Rigidbody>().angularVelocity*=0.9f;
+
+                characterControler.transform.position = moveDir;
 
                 break;
         }

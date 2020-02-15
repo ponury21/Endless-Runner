@@ -7,6 +7,12 @@ using UnityEngine.SceneManagement;
 
     public class UIManager : MonoBehaviour
 {
+
+    public Text ScoreText, StatusText;
+
+    public GameObject Menu, GameOver, Pause;
+    //public Button NewGameButton;
+    public int i=0;
     void Awake()
     {
         if (instance == null)
@@ -73,20 +79,27 @@ using UnityEngine.SceneManagement;
     }
     public void hideUI(){
         Vector3 pos=Menu.transform.position;
-        pos.y=1000f;
+        pos.y=2000f;
         Menu.transform.position=pos;
        // NewGameButton.gameObject.SetActive(false);
     }
-    public void showUI(){
-        Vector3 pos=Menu.transform.position;
+    public void showUIDead(){
+        Vector3 pos=Menu.transform.position,pos1=Menu.transform.position;
         pos.y=500f;
+        pos1.y=2000f;
         Menu.transform.position=pos;
+        Pause.transform.position=pos1;
+        GameOver.transform.position=pos;
        // NewGameButton.gameObject.SetActive(true);
     }
-    public Text ScoreText, StatusText;
+    public void showUIPause(){
+        Vector3 pos=Menu.transform.position,pos1=Menu.transform.position;
+        pos.y=500f;
+        pos1.y=2000f;
+        Menu.transform.position=pos;
+        GameOver.transform.position=pos1;
+       // NewGameButton.gameObject.SetActive(true);
+    }
 
-    public GameObject Menu;
-    //public Button NewGameButton;
-    public int i=0;
 }
 

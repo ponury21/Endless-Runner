@@ -35,11 +35,11 @@ public class GameManager : MonoBehaviour
     public GameState GameState { get; set; } 
     public void Die(){
             this.GameState = GameState.Dead; 
-            UIManager.Instance.showUI();
+            UIManager.Instance.showUIDead();
     }
     public void Pause(){
         this.GameState=GameState.Pause;
-        UIManager.Instance.showUI();
+        UIManager.Instance.showUIPause();
     }
     public void Play(){
         this.GameState=GameState.Playing;

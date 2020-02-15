@@ -6,7 +6,6 @@ public class PathSpawnCollider : MonoBehaviour {
     public float positionY = 0.81f;
     public Transform[] PathSpawnPoints;
     public GameObject Path;
-    public GameObject DangerousBorder;
 
     void OnTriggerEnter(Collider hit)
     {

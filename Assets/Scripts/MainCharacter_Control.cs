@@ -43,14 +43,17 @@ public class MainCharacter_Control : MonoBehaviour
     {
         //ruch do przodu
         
-
+        float x=0;
+        float z=0;
         if (pauza == 0)
         {
             characterControler.Move(new Vector3(0, 0, -1) * predkoscporuszania * 10 * Time.deltaTime);
+            x = Input.GetAxis("Horizontal");
+            z = Input.GetAxis("Vertical");
         }
 
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+        //float x = Input.GetAxis("Horizontal");
+        //float z = Input.GetAxis("Vertical");
 
         Vector3 move = transform.right * x + transform.forward * z;
         characterControler.Move(move * predkoscporuszania*10 * Time.deltaTime);

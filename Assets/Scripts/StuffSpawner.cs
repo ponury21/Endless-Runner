@@ -9,7 +9,7 @@ public class StuffSpawner : MonoBehaviour
     public GameObject[] Bonus;
 
     public GameObject[] Obstacle;
-    public float minX = -2f, maxX = 2f;
+    public float minX = -20f, maxX = 20f;
     void Start()
     {
        

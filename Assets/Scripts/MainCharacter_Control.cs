@@ -7,7 +7,7 @@ public class MainCharacter_Control : MonoBehaviour
 {
     public CharacterController characterControler;
     public Vector3 moveDir = new Vector3(0,0,0);
-    public Vector3 xde = new Vector3(0, 0, -1);
+    //public Vector3 xde = new Vector3(0, 0, -1);
     public float predkoscporuszania = 100f;
     public bool isGrounded=true;
     public bool canJump=true;

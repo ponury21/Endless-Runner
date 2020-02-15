@@ -87,7 +87,11 @@ public class MainCharacter_Control : MonoBehaviour
                 GameManager.Instance.Pause();
             }
 
-            if(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow))
+            if(Input.GetKey(KeyCode.UpArrow))
+                {
+                    Input.ResetInputAxes();
+                }
+                if(Input.GetKey(KeyCode.S))
                 {
                     Input.ResetInputAxes();
                 }

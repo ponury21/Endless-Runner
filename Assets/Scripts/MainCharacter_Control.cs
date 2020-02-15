@@ -55,8 +55,25 @@ public class MainCharacter_Control : MonoBehaviour
         //float x = Input.GetAxis("Horizontal");
         //float z = Input.GetAxis("Vertical");
 
-        Vector3 move = transform.right * x + transform.forward * z;
-        characterControler.Move(move * predkoscporuszania*10 * Time.deltaTime);
+        
+        if (characterControler.transform.position.x < -3 && characterControler.transform.position.x > -14)
+        {
+
+            Vector3 move = transform.right * x + transform.forward * z;
+            characterControler.Move(move * predkoscporuszania * 10 * Time.deltaTime);
+
+
+        }
+        if (characterControler.transform.position.x > -3)
+        {
+            characterControler.Move(new Vector3(-0.1f, 0, 0));
+        }
+
+        if (characterControler.transform.position.x < -14)
+        {
+            characterControler.Move(new Vector3(0.1f, 0, 0));
+        }
+
 
 
         switch (GameManager.Instance.GameState){

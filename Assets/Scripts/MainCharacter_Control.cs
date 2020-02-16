@@ -77,17 +77,22 @@ public class MainCharacter_Control : MonoBehaviour
 
 
         switch (GameManager.Instance.GameState){
+            case GameState.Start:
+               UIManager.Instance.SetStatus("Status: Start"); 
+               pauza=1;
+               break;
             
             case GameState.Playing:
 
             UIManager.Instance.SetStatus("Status: Playing");
+            pauza=0;
 
             //GetComponent<Rigidbody>().AddTorque(Vector3.left*moveSpeed);
             if(Input.GetKeyDown(KeyCode.Escape)){
                 GameManager.Instance.Pause();
             }
 
-            if(Input.GetKey(KeyCode.UpArrow))
+            if(Input.GetKey(KeyCode.DownArrow))
                 {
                     Input.ResetInputAxes();
                 }

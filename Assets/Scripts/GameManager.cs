@@ -29,13 +29,13 @@ public class GameManager : MonoBehaviour
         }
     }
     protected GameManager(){
-        GameState = GameState.Playing;
+        GameState = GameState.Start;
     }
 
     public GameState GameState { get; set; } 
     public void Die(){
             this.GameState = GameState.Dead; 
-            UIManager.Instance.showUIDead();
+            UIManager.Instance.showHighScores();
     }
     public void Pause(){
         this.GameState=GameState.Pause;
@@ -44,5 +44,9 @@ public class GameManager : MonoBehaviour
     public void Play(){
         this.GameState=GameState.Playing;
         UIManager.Instance.hideUI();
+    }
+    public void Start(){
+        this.GameState=GameState.Start;
+        UIManager.Instance.showUIStart();
     }
 }

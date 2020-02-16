@@ -3,5 +3,6 @@ public enum GameState
 {
     Playing,
     Pause,
-    Dead
+    Dead,
+    Start
 }

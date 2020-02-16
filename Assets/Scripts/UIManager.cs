@@ -131,7 +131,7 @@ using System;
     }
     public void fillHighScoresTxt(){
         for(int x=0;x<highScoreTxt.Length;x++){
-            highScoreTxt[x].text=x.ToString()+" . "+nameArray[x]+" : "+scoreArray[x];
+            highScoreTxt[x].text=(x+1).ToString()+" . "+nameArray[x]+" : "+scoreArray[x];
         }
     }
     public void showUIPause(){
@@ -165,15 +165,13 @@ using System;
 
         for(int x=0;x<10;x++){
             if(scoreArray[x]<score){
-                for(int z=8;z>x;z--){
+                for(int z=9;z>x;z--){
                     scoreArray[z]=scoreArray[z-1];
                     nameArray[z]=nameArray[z-1];
                 }
-                scoreArray[x+1]=scoreArray[x];
                 scoreArray[x]=score;
-                nameArray[x+1]=nameArray[x];
                 nameArray[x]=PlayerName;
-                x=10;
+                x=12;
             }
         }
         for(int x=0;x<10;x++){

@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pill : MonoBehaviour
+public class Coin : MonoBehaviour
 {
-   void Update()
+    void Update()
     {
         transform.Rotate(Vector3.up,Time.deltaTime*rotateSpeed);
         transform.Rotate(Vector3.forward,Time.deltaTime*rotateSpeed);
@@ -14,8 +13,6 @@ public class Pill : MonoBehaviour
     
     void OnTriggerEnter(Collider col){
         Destroy(this.gameObject);
-        UIManager.Instance.IncreaseScore(100);
+        UIManager.Instance.IncreaseScore(500);
     }
-
-    
 }

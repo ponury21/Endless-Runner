@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class MainCharacter_Control : MonoBehaviour
 {
+    public Animator myAnimator;
     public CharacterController characterControler;
     public Vector3 moveDir = new Vector3(0,0,0);
     //public Vector3 xde = new Vector3(0, 0, -1);
@@ -22,6 +23,7 @@ public class MainCharacter_Control : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        myAnimator = GetComponent<Animator>();
         Rigidbody rigidbody = transform.GetComponent<Rigidbody>();
         characterControler = GetComponent<CharacterController>();
         UIManager.Instance.ResetScore();
@@ -41,6 +43,11 @@ public class MainCharacter_Control : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            myAnimator.SetTrigger("Jump");       
+        }
         //ruch do przodu
         
         float x=0;

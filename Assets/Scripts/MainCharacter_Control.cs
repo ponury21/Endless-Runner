@@ -17,12 +17,17 @@ public class MainCharacter_Control : MonoBehaviour
     public float moveSpeed=0f;
     public float sideSpeed=0f;
     public int pauza = 0;
-
+    public AudioSource dzwiek;
+    public AudioClip moneta;
+    public AudioClip porazka;
+    public AudioClip lizak;
+    public AudioClip jump;
     public float isPressedR = 1;
     public float isPressedL = 1;
     // Start is called before the first frame update
     void Start()
     {
+        dzwiek = GetComponent<AudioSource>();
         myAnimator = GetComponent<Animator>();
         Rigidbody rigidbody = transform.GetComponent<Rigidbody>();
         characterControler = GetComponent<CharacterController>();
@@ -31,21 +36,33 @@ public class MainCharacter_Control : MonoBehaviour
 
         //GameManager.Instance.Play();
     }
- 
-    void OnCollisionEnter(Collision col)
+
+
+    void OnTriggerEnter(Collider col)
     {
-        if(col.gameObject.tag==("Ground")&& isGrounded == false)
+        if (col.gameObject.tag == "moneta")
         {
-            isGrounded = true;
+            dzwiek.PlayOneShot(moneta);
+        }
+
+        if (col.gameObject.tag == "porazka")
+        {
+            dzwiek.PlayOneShot(porazka);
+        }
+
+        if(col.gameObject.tag == "lizak")
+        {
+            dzwiek.PlayOneShot(lizak);
         }
     }
-    void OnCollisionExit(Collision col){isGrounded=false;}
+
     // Update is called once per frame
     void Update()
     {
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
+            dzwiek.PlayOneShot(jump);
             myAnimator.SetTrigger("Jump");       
         }
         //ruch do przodu

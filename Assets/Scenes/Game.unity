@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.43669912, g: 0.48429865, b: 0.56454724, a: 1}
+  m_IndirectSpecularColor: {r: 0.43669912, g: 0.48429888, b: 0.5645477, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2654,6 +2654,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc05d894a3a3d1244b4829cca179bce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myAnimator: {fileID: 0}
   characterControler: {fileID: 1366714075}
   moveDir: {x: 0, y: 0, z: 0.1}
   predkoscporuszania: 1
@@ -2664,6 +2665,11 @@ MonoBehaviour:
   moveSpeed: 200
   sideSpeed: 50
   pauza: 0
+  dzwiek: {fileID: 0}
+  moneta: {fileID: 8300000, guid: bf3c42e4e1b9f634ba8b32d471824991, type: 3}
+  porazka: {fileID: 8300000, guid: cb72b0cbada4e50448ad16c822a7ef50, type: 3}
+  lizak: {fileID: 8300000, guid: 2bbb3f0168bab844e9d435193c82ed58, type: 3}
+  jump: {fileID: 8300000, guid: ee3ef31b921c91c4f98a8c27c75bb92e, type: 3}
   isPressedR: 1
   isPressedL: 1
 --- !u!143 &1366714075
@@ -2698,6 +2704,102 @@ CapsuleCollider:
   m_Height: 18
   m_Direction: 1
   m_Center: {x: 0, y: 3, z: 0}
+--- !u!82 &1366714077
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1366714073}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 00e2da48f4f0a074bae625b8decf47da, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &1366714078 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400078, guid: 461413943bab6ef40aa2a33f18380180,
@@ -4129,6 +4231,12 @@ PrefabInstance:
       propertyPath: Bonus.Array.data[1]
       value: 
       objectReference: {fileID: 8949504536096465121, guid: 34d24dd50d582a1478e2a7ce24e5c7fa,
+        type: 3}
+    - target: {fileID: 4474857424742771000, guid: 5977ef43e0dad7d4f8b1e0fb02b99552,
+        type: 3}
+      propertyPath: Bonus.Array.data[0]
+      value: 
+      objectReference: {fileID: 5938834536468602477, guid: 9d01ce0265747be41a642cc22dde3f25,
         type: 3}
     - target: {fileID: 4783264277443030090, guid: 5977ef43e0dad7d4f8b1e0fb02b99552,
         type: 3}

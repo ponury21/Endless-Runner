@@ -87,7 +87,7 @@ public class MainCharacter_Control : MonoBehaviour
         }
         if (characterControler.transform.position.y < 3.69f)
         {
-            characterControler.Move(new Vector3(0, 0.01f, 0));
+            characterControler.Move(new Vector3(0, 0.1f, 0));
         }
 
         //ruch do przodu

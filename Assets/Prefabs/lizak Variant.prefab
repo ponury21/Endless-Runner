@@ -27,6 +27,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 50
+--- !u!114 &-7309444386632732972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5938834536468602477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0063e636a05e1aa4ca9f054346fd38a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LifeTime: 40
 --- !u!1001 &2399037192803911524
 PrefabInstance:
   m_ObjectHideFlags: 0

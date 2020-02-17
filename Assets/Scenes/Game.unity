@@ -2662,6 +2662,9 @@ MonoBehaviour:
   isGrounded: 1
   canJump: 1
   i: 0
+  skok: 0
+  y: 0
+  zy: 1
   dTime: 0
   moveSpeed: 200
   sideSpeed: 50
@@ -4225,7 +4228,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Obstacle.Array.data[0]
       value: 
-      objectReference: {fileID: 6587767416418048097, guid: 0f55e5ff65cd6444b8186c56737e176d,
+      objectReference: {fileID: 7916838771295673546, guid: 37e180010f09f064ab19cff755d1f21b,
         type: 3}
     - target: {fileID: 4474857424742771000, guid: 5977ef43e0dad7d4f8b1e0fb02b99552,
         type: 3}

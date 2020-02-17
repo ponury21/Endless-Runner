@@ -63,13 +63,17 @@ public class MainCharacter_Control : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (y == 0) { skok = 30; }
-            dzwiek.PlayOneShot(jump);
-            myAnimator.SetTrigger("Jump");
+            if (y == 0)
+            {
+                skok = 40;
+                dzwiek.PlayOneShot(jump);
+                myAnimator.SetTrigger("Jump");
+            }
+
         }
         if (y < skok)
         {
-            characterControler.Move(new Vector3(0, y / 2, 0) * Time.deltaTime);
+            characterControler.Move(new Vector3(0, 8f, 0) * Time.deltaTime);
             y++;
         }
         if (y == skok)
@@ -78,7 +82,7 @@ public class MainCharacter_Control : MonoBehaviour
         }
         if (y > 0 && skok == 0)
         {
-            characterControler.Move(new Vector3(0, -y / 2, 0) * Time.deltaTime);
+            characterControler.Move(new Vector3(0, -8f, 0) * Time.deltaTime);
             y--;
         }
         if (characterControler.transform.position.y < 3.69f)

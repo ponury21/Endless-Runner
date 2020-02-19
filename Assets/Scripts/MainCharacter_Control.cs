@@ -60,6 +60,7 @@ public class MainCharacter_Control : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        predkoscporuszania += 0.001f;
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -73,7 +74,7 @@ public class MainCharacter_Control : MonoBehaviour
         }
         if (y < skok)
         {
-            characterControler.Move(new Vector3(0, 8f, 0) * Time.deltaTime);
+            characterControler.Move(new Vector3(0, 11f, 0) * Time.deltaTime);
             y++;
         }
         if (y == skok)
@@ -82,7 +83,7 @@ public class MainCharacter_Control : MonoBehaviour
         }
         if (y > 0 && skok == 0)
         {
-            characterControler.Move(new Vector3(0, -8f, 0) * Time.deltaTime);
+            characterControler.Move(new Vector3(0, -11f, 0) * Time.deltaTime);
             y--;
         }
         if (characterControler.transform.position.y < 3.69f)
